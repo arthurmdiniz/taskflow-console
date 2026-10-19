@@ -1,3 +1,5 @@
+namespace TaskFlow.ConsoleApp;
+
 public class TaskManager
 {
     private readonly List<TaskItem> _tasks = new();
@@ -13,7 +15,15 @@ public class TaskManager
 
     public TaskItem? GetById(Guid id)
     {
-        return _tasks.FirstOrDefault(t => t.Id == id);
+        foreach (var task in _tasks)
+        {
+            if (task.Id == id)
+            {
+                return task;
+            }
+        }
+
+        return null;
     }
 
     public bool CompleteTask(Guid id)
