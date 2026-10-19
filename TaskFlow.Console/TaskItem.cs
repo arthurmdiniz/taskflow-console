@@ -1,3 +1,5 @@
+namespace TaskFlow.ConsoleApp;
+
 public class TaskItem
 {
     public Guid Id { get; private set; }
